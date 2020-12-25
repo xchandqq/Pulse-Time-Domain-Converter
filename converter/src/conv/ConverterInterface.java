@@ -14,7 +14,7 @@ import java.util.Calendar;
  */
 public interface ConverterInterface {
     public File getOutputFile(Calendar calendar);
-    public String getWriteLine(int pulses);
+    public String getWriteLine(long timestamp, int pulses);
     public long getPreviousTimestamp();
     public int getPreviousPulseCount();
     public void savePostConversionData(long timestamp, int pulseCount);

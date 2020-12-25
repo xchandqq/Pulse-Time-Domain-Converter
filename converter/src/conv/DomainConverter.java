@@ -37,7 +37,7 @@ public class DomainConverter {
         }
 
         @Override
-        public String getWriteLine(int pulses) {
+        public String getWriteLine(long timestamp, int pulses) {
             return pulses+"";
         }
 
@@ -95,7 +95,7 @@ public class DomainConverter {
                     
                     while(timestamp > targetTimestamp){
                         writeCount++;
-                        bw.write(getConverterInterface().getWriteLine(0));
+                        bw.write(getConverterInterface().getWriteLine(targetTimestamp, 0));
                         bw.newLine();
                         targetTimestamp += TIME_DELTA;
                     }
@@ -105,7 +105,7 @@ public class DomainConverter {
                 
                 while(timestamp > targetTimestamp){
                     bw = new BufferedWriter(new FileWriter(tddFile, true));
-                    bw.write(getConverterInterface().getWriteLine(pulseCounter));
+                    bw.write(getConverterInterface().getWriteLine(targetTimestamp, pulseCounter));
                     bw.newLine();
                     
                     writeCount++;
