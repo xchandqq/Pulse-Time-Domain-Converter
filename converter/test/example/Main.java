@@ -11,6 +11,7 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.TimeZone;
 
 /**
  *
@@ -59,6 +60,7 @@ public class Main {
         DomainConverter.setIndicesPerLine(1);
         DomainConverter.setTimestampIndex(0);
         DomainConverter.setConverterInterface(CONVERTER_INTERFACE);
+        DomainConverter.setTimeZone(TimeZone.getTimeZone("UTC+8:00"));
         
         File yourPulseDomainFile = new File("test.csv");
         DomainConverter.convert(yourPulseDomainFile);
